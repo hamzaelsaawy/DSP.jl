@@ -71,4 +71,6 @@ export  remez,
         filter_type_differentiator,
         filter_type_hilbert
 
+include("show.jl")
+
 end
