@@ -1,18 +1,28 @@
 module Filters
+
 using ..DSP: @importffts, mul!, rmul!
 using ..Unwrap
-using Polynomials, ..Util
+using ..Util
 import Base: *
-using Compat: copyto!, undef, argmin
+
+using Polynomials
+using Unitful
+using Unitful: dB, dBV, DimensionlessQuantity
+export @dB, @u_str, @dB
+
 import Compat
+using Compat: copyto!, undef, argmin
 using Compat.LinearAlgebra: I
 using Compat.Statistics: middle
+
 @importffts
 if VERSION >= v"0.7.0-DEV.602"
     import ..DSP: filt, filt!
 else
     import Base: filt, filt!
 end
+
+include("miscellaneous.jl")
 
 include("coefficients.jl")
 export FilterCoefficients,
